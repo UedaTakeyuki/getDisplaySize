@@ -41,14 +41,17 @@ displaysize (gint *width, gint *height){
   }
 
   g_regex_match (regex, standard_output, 0, &match_info);
+  g_free(standard_output);
   gchar *x = g_match_info_fetch (match_info, 1);
 //  g_print("x: %s\n", x);
   gchar *y = g_match_info_fetch (match_info, 2);
 //  g_print("y: %s\n", y);
 
   *width = g_ascii_strtoll(x, NULL, 10);
+  g_free(x);
 //  g_print("width: %d\n", *width);
   *height = g_ascii_strtoll(y, NULL, 10);
+  g_free(y);
 //  g_print("hight: %d\n", *height);
 
   return 0;

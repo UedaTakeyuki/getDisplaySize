@@ -1,4 +1,4 @@
-getDisplaySize: main.c displaysize.o
+getDisplaySize: main.c displaysize.o displaysize.h
 	gcc -g `pkg-config --cflags --libs gtk+-3.0` -o getDisplaySize main.c displaysize.o
 
 displaysize.o: displaysize.c
