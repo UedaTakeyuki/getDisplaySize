@@ -4,7 +4,8 @@ int
 displaysize (gint *width, gint *height){
 
   // call "tvservice -s" to get a string of width and height
-  const gchar *command_line = "tvservice -s";
+  // https://howchoo.com/pi/raspberry-pi-display-resolution-lookup
+  const gchar *command_line = "fbset -s";
   gchar *standard_output = NULL;
   gboolean result;
   GError *error = NULL;
@@ -26,13 +27,14 @@ displaysize (gint *width, gint *height){
     g_error_free (error);
     return status;
   }
-//  g_print("standard_output: %s\n", standard_output);
+//  g_print("standard_output: %s\n",standard_output);
 
   // parse width and height string
   GRegex *regex;
   GMatchInfo *match_info;
 
-  regex = g_regex_new ("([0-9]+)x([0-9]+)", 0, 0, &error);
+  regex = g_regex_new ("geometry ([0-9]+) ([0-9]+)", 0, 0, &error);
+//  regex = g_regex_new ("([0-9]+)x([0-9]+)", 0, 0, &error);
   if (!result){ // error handling
     g_print("err: %s\n", error->message);
     g_print("err: %d\n", error->code);
@@ -45,6 +47,8 @@ displaysize (gint *width, gint *height){
   
   // whether the previous match operation succeeded
   if (g_match_info_matches (match_info)){
+  //  gchar *zero = g_match_info_fetch (match_info, 0);
+  //  g_print("match: %s\n", zero);
     gchar *x = g_match_info_fetch (match_info, 1);
     gchar *y = g_match_info_fetch (match_info, 2);
   //  g_print("x: %s\n", x);
