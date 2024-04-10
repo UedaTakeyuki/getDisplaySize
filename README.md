@@ -32,4 +32,4 @@ You can refer running [main.c](https://github.com/UedaTakeyuki/getDisplaySize/bl
 
 ## References
 
--[Commands to get RPi display size](wiki/commands-to-get-RPi-display-size)
+- [Commands to get RPi display size](https://github.com/UedaTakeyuki/getDisplaySize/wiki/commands-to-get-RPi-display-size)
