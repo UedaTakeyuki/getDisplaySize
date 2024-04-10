@@ -25,6 +25,11 @@ main(){
 build it as follows:
 ```
 gcc -g `pkg-config --cflags --libs gtk+-3.0` -o getDisplaySize main.c displaysize.o
+
 ```
 
 You can refer running [main.c](https://github.com/UedaTakeyuki/getDisplaySize/blob/main/main.c) and [Makefile](https://github.com/UedaTakeyuki/getDisplaySize/blob/main/Makefile).
+
+## References
+
+-[Commands to get RPi display size](wiki/commands-to-get-RPi-display-size)
